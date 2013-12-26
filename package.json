@@ -1,0 +1,11 @@
+{
+	"name": "thrift",
+	"description": "Thrift bindings for D ",
+	"copyright": "Copyright © 2013, msshin",
+	"authors": ["msshin"],
+    "targetType" : "library",
+	"dependencies": {
+        "libevent" : "~master",
+        "openssl" : "~master"
+	}
+}
