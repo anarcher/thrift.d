@@ -2,6 +2,7 @@
 	"name": "thrift",
 	"description": "Thrift bindings for D ",
 	"copyright": "Copyright © 2013, msshin",
+    "license": "Apache-2.0 or later",
 	"authors": ["msshin"],
     "targetType" : "library",
 	"dependencies": {
