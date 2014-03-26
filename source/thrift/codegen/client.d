@@ -23,6 +23,7 @@ import std.array : empty, front;
 import std.conv : to;
 import std.traits : isSomeFunction, ParameterStorageClass,
   ParameterStorageClassTuple, ParameterTypeTuple, ReturnType;
+import std.traits : isArray;
 import thrift.codegen.base;
 import thrift.internal.codegen;
 import thrift.internal.ctfe;
@@ -462,7 +463,12 @@ template TPresultStruct(Interface, string methodName) {
       ) {
         static if (fieldName == "success") {
           static if (isNullable!(typeof(*success))) {
-            return *success !is null;
+            //In D. empty array is null. Sometimes it's confused
+            static if (isArray!(typeof(*success))) {
+                return true;
+            } else {
+                return *success !is null;
+            }
           } else {
             return isSetFlags.success;
           }
